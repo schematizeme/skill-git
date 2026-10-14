@@ -1,7 +1,7 @@
 ---
 name: schematize-git
 metadata:
-  version: 0.2.0
+  version: 0.2.1
 description: >-
   Fluxo git: trunk-based, Conventional Commits, commits assinados, PR pequeno, segredo commitado. Use ao commitar, abrir PR ou tocar .gitignore. Release de skill: schematize-skill-dev.
 ---
@@ -15,7 +15,7 @@ para sempre. Por isso o erro se corrige **à frente** (commit novo, `revert`), n
 segredo que tocou o remoto é tratado como público; e a cópia local nunca diverge do publicado. Esta
 skill põe o gate na mão de quem commita, antes do push.
 
-**Versão:** skill `schematize-git` v0.2.0. Changelog em `CHANGELOG.md`.
+**Versão:** skill `schematize-git` v0.2.1. Changelog em `CHANGELOG.md`.
 
 ## Precedência e herança (leia antes de divergir)
 

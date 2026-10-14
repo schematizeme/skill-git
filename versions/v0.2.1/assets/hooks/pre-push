@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# pre-push — recusa push direto (ou não fast-forward) em main/master/release/*. (schematize-git)
+# Fluxo da casa: branch curta + PR. Dono solo em repo sem PR: GIT_ALLOW_PUSH_MAIN=1 git push.
+# Force/non-ff na branch protegida nunca é liberado pela variável.
+set -euo pipefail
+zero="0000000000000000000000000000000000000000"
+while read -r _lref lsha rref rsha; do
+  case "$rref" in refs/heads/main|refs/heads/master|refs/heads/release/*) ;; *) continue ;; esac
+  [ "$lsha" = "$zero" ] && { echo "pre-push: apagar $rref é vetado" >&2; exit 1; }
+  if [ "$rsha" != "$zero" ] && ! git merge-base --is-ancestor "$rsha" "$lsha" 2>/dev/null; then
+    echo "pre-push: push não fast-forward em $rref (reescrita de histórico publicado) — vetado" >&2; exit 1
+  fi
+  [ "${GIT_ALLOW_PUSH_MAIN:-0}" = 1 ] || { echo "pre-push: push direto em $rref — abra PR (ou GIT_ALLOW_PUSH_MAIN=1 se for o dono solo)" >&2; exit 1; }
+done
+exit 0

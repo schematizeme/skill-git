@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# pre-commit — barra segredo e arquivo proibido no índice (schematize-git).
+# Se o gitleaks existir, roda também (defesa em profundidade); o gate próprio roda sempre.
+set -euo pipefail
+G="${GIT_GATE_SCRIPT:-}"
+for c in "$G" ".claude/skills/schematize-git/scripts/check-git.sh" "$HOME/.claude/skills/schematize-git/scripts/check-git.sh"; do
+  [ -n "$c" ] && [ -f "$c" ] && { G="$c"; break; }
+done
+[ -f "$G" ] || { echo "pre-commit: check-git.sh não encontrado (instale schematize-git)" >&2; exit 1; }
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks git --staged --redact --no-banner >/dev/null 2>&1 || gitleaks protect --staged --redact >/dev/null 2>&1 || {
+    echo "pre-commit: gitleaks achou segredo no índice" >&2; exit 1; }
+else
+  echo "pre-commit: aviso — gitleaks ausente; só o gate de regex rodou (instale o gitleaks)" >&2
+fi
+bash "$G" --staged

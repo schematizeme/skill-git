@@ -1,0 +1,35 @@
+# Segredo e ambiente local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials.json
+.npmrc
+.netrc
+# IaC: state e plan nunca
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform/
+# Build e dependências
+node_modules/
+target/
+dist/
+build/
+__pycache__/
+*.pyc
+.venv/
+vendor/
+# Lixo de editor e SO
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+# Artefato de release (vai como asset da Release, não no repo)
+*.zip

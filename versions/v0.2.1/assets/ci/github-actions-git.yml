@@ -1,0 +1,23 @@
+# Gate de histórico no PR: Conventional Commits, segredo, arquivo grande, merge linear.
+# O nome do job (check-git) é o status check que o ruleset-main.json exige.
+name: check-git
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check-git:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Gate do fluxo git (range do PR)
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          # Copie scripts/check-git.sh da skill schematize-git para .github/scripts/ do repo.
+          bash .github/scripts/check-git.sh . --range "${BASE_SHA}..${HEAD_SHA}" --linear
