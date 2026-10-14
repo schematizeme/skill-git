@@ -1,0 +1,12 @@
+slug = "git"
+name = "schematize-git"
+tag = "Disciplina · Fluxo git"
+status = "beta"
+order = 49
+current_version = "0.1.0"
+href = "/git"
+
+[descriptions]
+pt = "O fluxo git da casa: trunk-based com branches curtas, Conventional Commits, commits assinados, PR pequeno, rulesets e CODEOWNERS, nunca reescrever histórico publicado, segredo commitado (rotacionar primeiro), hooks, tags SemVer e GitHub como fonte da verdade, com gate executável."
+en = "The house's git workflow: trunk-based with short branches, Conventional Commits, signed commits, small PRs, rulesets and CODEOWNERS, never rewriting published history, committed secrets (rotate first), hooks, SemVer tags and GitHub as the source of truth, with an executable gate."
+es = "El flujo git de la casa: trunk-based con ramas cortas, Conventional Commits, commits firmados, PR pequeños, rulesets y CODEOWNERS, nunca reescribir historial publicado, secreto commiteado (rotar primero), hooks, tags SemVer y GitHub como fuente de verdad, con gate ejecutable."

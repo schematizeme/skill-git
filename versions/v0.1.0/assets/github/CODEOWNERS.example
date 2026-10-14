@@ -1,0 +1,11 @@
+# O ÚLTIMO padrão que casa vence: genérico primeiro, específico depois.
+# Dono é TIME (mín. 2 pessoas), não pessoa isolada.
+*                       @ORG/engenharia
+
+# Caminhos sensíveis: sempre com dono explícito.
+/.github/               @ORG/plataforma
+/.github/CODEOWNERS     @ORG/plataforma
+/infra/                 @ORG/plataforma
+/**/migrations/         @ORG/dados
+/src/auth/              @ORG/seguranca
+/SECURITY.md            @ORG/seguranca
