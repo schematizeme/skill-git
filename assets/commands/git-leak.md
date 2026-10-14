@@ -20,3 +20,5 @@ argument-hint: "<o que vazou, sem colar o valor>"
    Verifique que `scripts/check-git.sh` e o secret scanning/push protection estão ligados.
 
 Não cole o valor em chat, issue, PR ou relatório. O gate imprime só o caminho e um trecho truncado.
+
+Token de bot de chat vazado: revogue/rotacione na plataforma antes de limpar o histórico (`schematize-bots → references/credenciais-e-token.md`).

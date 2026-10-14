@@ -65,3 +65,5 @@ do ruleset e registre o que foi feito. `git-filter-repo` é ferramenta externa (
 - Colar o valor do segredo em issue, PR, chat ou no relatório do gate (o gate imprime só trecho
   truncado e o caminho; trate a saída como sensível mesmo assim).
 - `git commit --no-verify` para passar por cima do hook. Hook barrando é o hook funcionando.
+
+Token de bot de chat (Discord, Telegram, Slack) commitado: rotacione primeiro no painel da plataforma; ver `schematize-bots → references/credenciais-e-token.md`.
