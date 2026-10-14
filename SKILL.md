@@ -3,7 +3,7 @@ name: schematize-git
 metadata:
   version: 0.1.0
 description: >-
-  Fluxo git da casa: trunk-based, Conventional Commits, commits assinados, PR pequeno, rulesets, segredo commitado, tags SemVer. Use ao commitar, abrir PR ou tocar .gitignore/CODEOWNERS. Release de skill: schematize-skill-dev.
+  Fluxo git: trunk-based, Conventional Commits, commits assinados, PR pequeno, segredo commitado. Use ao commitar, abrir PR ou tocar .gitignore. Release de skill: schematize-skill-dev.
 ---
 <!-- cross-skill: precedencia.md, orquestracao.md -> schematize-engineering -->
 
