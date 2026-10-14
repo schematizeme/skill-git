@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# commit-msg — barra mensagem fora de Conventional Commits (schematize-git).
+# Instalar: cp assets/hooks/commit-msg .git/hooks/ && chmod +x .git/hooks/commit-msg
+# GIT_GATE_SCRIPT aponta para o check-git.sh (padrão: skill instalada em .claude ou ~/.claude).
+set -euo pipefail
+G="${GIT_GATE_SCRIPT:-}"
+for c in "$G" ".claude/skills/schematize-git/scripts/check-git.sh" "$HOME/.claude/skills/schematize-git/scripts/check-git.sh"; do
+  [ -n "$c" ] && [ -f "$c" ] && { G="$c"; break; }
+done
+[ -f "$G" ] || { echo "commit-msg: check-git.sh não encontrado (instale schematize-git)" >&2; exit 1; }
+exec bash "$G" --msg-file "$1"
